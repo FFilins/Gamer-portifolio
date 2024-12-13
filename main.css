@@ -11,7 +11,7 @@ header {
     display: flex;
     justify-content: center;
     width: 100%;
-    min-height: 15%;
+    min-height: 20%;
     max-height: 20%;
     background-image: linear-gradient(rgba(36,36,36,1), rgba(36,36,36,0.15));
     z-index: 10;
@@ -59,9 +59,6 @@ header {
 .button-left:hover::after, .button-right:hover::after {
     width: 100%;
 }
-/* .button-left:hover, .button-right:hover {
-    background-image: linear-gradient(rgba(5,93,48,1), rgb(0, 255, 255, 0.5));
-} */
 .button-left {
     margin-right: -7px;
     clip-path: polygon(0 0, 75% 0, 100% 100%, 25% 100%);
@@ -71,11 +68,9 @@ header {
     clip-path: polygon(25% 0, 100% 0, 75% 100%, 0 100%);
 }
 
-header a {
+header span {
     font-size: 1.8em;
     font-family: alegreya;
-}
-header a, header a:link, header a:active {
     color: white;
 }
 .header-text {
@@ -101,9 +96,12 @@ header a, header a:link, header a:active {
 /* Odin */
 .odin {
     position: relative;
+    width: 100vw;
+    height: 100vh;
 }
-.layers, .background {
+.layers-top, .layers-bottom, .background {
     z-index: -1;
+
 }
 .background img {
     width: 100%;
@@ -113,20 +111,159 @@ header a, header a:link, header a:active {
     left: 0;
     right: 0;
     bottom: 0;
+    animation: appear 1s;
 }
 .layer1, .layer2, .layer3, .layer4, .layer5 {
-    background-color: rgba(0, 128, 79, .1);
-    height: 1000px;
-    width: 1000px;
-    rotate: -55deg;
-    position: absolute;
+    background-color: rgba(0, 128, 79, .15);
+    height: 1500px;
+    width: 1500px;
+    rotate: 45deg;
+    position: fixed;
+}
+.layer1, .layer2, .layer3 {
+    top: -600px;
+    left: -600px;
+}
+.layer4, .layer5 {
+    bottom: -600px;
+    right: -650px;
 }
 .layer1 {
-    top: -500px;
-    left: -500px;
+    width: 750px;
+}
+.layer2 {
+    width: 825px;
+}
+.layer3 {
+    width: 900px;
+}
+.layer4 {
+    width: 1050px;
+}
+.layer5 {
+    width: 900px;
 }
 
 /* Body */
+
+main {
+    width: calc(100% - 30px);
+    height: calc(calc(100% - 20%) - 140px);
+    margin: 15px;
+    position: fixed;
+    top: 20%;
+    overflow-y: scroll;
+}
+main::-webkit-scrollbar {
+    width: 10px; /* Largura do scrollbar */
+}
+  
+  /* Fundo do scrollbar */
+main::-webkit-scrollbar-track {
+    background: #55555577; /* Cor de fundo do track */
+    border-radius: 5px;
+    /* clip-path: polygon(50% 0, 100% 5px, 100% calc(100% - 5px), 50% 100%, 0 calc(100% - 5px), 0 5px); */
+
+}
+/* scrollbar móvel */
+main::-webkit-scrollbar-thumb {
+    background: #c3c3c3; /* Cor de fundo do track */
+    width: 5px;
+    border-radius: 5px;
+    /* clip-path: polygon(50% 0, 100% 5px, 100% calc(100% - 5px), 50% 100%, 0 calc(100% - 5px), 0 5px); */
+}
+main > div {
+    display: none;
+}
+.active {
+    display: block;
+}
+
+.circle {
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    background-color: #c3c3c3;
+    border-radius: 50%;
+    
+
+    position: relative;
+}
+.circle::after {
+    content: '';
+    width: 100%;
+    display: block;
+    border-radius: 50%;
+    transition: 400ms;
+
+    position: absolute;
+    top: 0;
+}
+.circle:hover::after {
+    height: 100%;
+
+    border-top: 2px solid #00ffff;
+    box-shadow: inset 0px 5px 10px rgba(0, 255, 255, .3);
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+.main-left {
+    width: 40%;
+    margin: 20px;
+}
+.main-right {
+    width: 40%;
+    height: 100%;
+    margin: 20px;
+}
+
+/* Profile Tab */
+
+.profile {
+    position: relative;
+}
+.profile img{
+    width: 300px;
+    max-width: 60%;
+
+    position: absolute;
+    border-radius: 50%;
+    right: 0;
+}
+.profile-list {
+    list-style: none;
+    padding-left: 0;
+}
+.profile-link {
+    color: white;
+    text-decoration: none;
+    margin-top: 5px;
+    
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.profile-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #00ffff;
+    transition: 400ms;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.profile-link:hover::after {
+    width: 100%;
+} 
+/* End Profile Tab */
 
 /* End Body */
 
@@ -142,6 +279,7 @@ footer {
 }
 footer span {
     font-family: 'open sans';
+    font-weight: 500;
     color: #000;
     text-align: end;
     display: block;
@@ -162,5 +300,17 @@ footer span {
     display: inline;
     font-size: 2.8em;
     color: white;
+    font-weight: 400;
 }
 
+/* Functions */
+
+/* Background image */
+@keyframes appear {
+    from {
+        transform: scale(4);
+    }
+    to {
+        transform: scale(1);
+    }
+}
