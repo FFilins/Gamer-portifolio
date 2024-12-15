@@ -171,6 +171,7 @@ main {
     position: fixed;
     top: 20%;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 main::-webkit-scrollbar {
     width: 10px; /* Largura do scrollbar */
@@ -229,6 +230,14 @@ main > div {
     height: 100%;
     color: white;
 }
+
+/* Profile Tab */
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+}
+
 .main-left {
     width: 40%;
     margin: 20px;
@@ -237,13 +246,6 @@ main > div {
     width: 40%;
     height: 100%;
     margin: 20px;
-}
-
-/* Profile Tab */
-
-.profile-container {
-    display: flex;
-    justify-content: center;
 }
 
 .profile {
@@ -293,6 +295,42 @@ main > div {
 
 /* Web Tab */
 
+.title {
+    text-align: center;
+}
+.list {
+    list-style: none;
+    padding: 0;
+}
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 10px;
+    /* background-color: #7ed95722; */
+    background-color: #055d2f44;
+    border-radius: 10px;
+}
+.li-text {
+    max-width: 55%;
+}
+.li-text a {
+    text-decoration: none;
+    color: white;
+}
+.li-text a:hover {
+    color: #00ffff;
+}
+.li-media {
+    width: 40%;
+    padding: 10px 0;
+    border-radius: 10px;
+    background-color: #c3c3c333;
+    text-align: center;
+}
+.li-media img {
+    width: 85%;
+}
 /* End Web Tab */
 
 /* End Body */
