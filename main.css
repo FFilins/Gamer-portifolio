@@ -31,8 +31,9 @@ header {
     top: 72px;
     bottom: 22px;
     right: 0;
-    left: calc((300px / 2) - 32px);
-    width: 52px;
+    left: calc((300px / 2) - 35px);
+    width: 55px;
+    border: 2px solid #055d2f;
     border-radius: 50%;
 
     transition: 400ms;
@@ -192,7 +193,7 @@ main::-webkit-scrollbar-thumb {
 main > div {
     display: none;
 }
-.active {
+.tab-active {
     display: block;
 }
 
