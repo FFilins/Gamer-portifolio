@@ -12,6 +12,7 @@ function changeTab( event ) {
         selectedTab.classList.remove('tab-active');
         newTab.classList.remove('hide');
         setTimeout( () => {      // impede a troca de ser instantânea 
+
             selectedTab.classList.add('hide');
             newTab.classList.add('tab-active');
         }, 200)

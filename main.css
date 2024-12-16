@@ -167,7 +167,6 @@ header span {
 main {
     width: calc(100% - 30px);
     height: calc((100% - 140px) - 140px);
-    margin: 15px;
     position: fixed;
     top: 140px;
     overflow-y: scroll;
@@ -191,7 +190,7 @@ main > div {
     opacity: 0;
     height: 0;
     /* overflow: hidden; */
-    transition: 400ms;
+    transition: 1000ms;
     display: block;
 }
 .hide {
@@ -199,6 +198,7 @@ main > div {
 }
 .tab-active {
     /* overflow: visible; */
+    margin: 15px;
     opacity: 1;
 }
 
@@ -275,7 +275,8 @@ main > div {
 @media (max-width: 768px) {
     .profile-container {
         flex-direction: column;
-        margin-top: 140px;
+        align-items: center;
+        justify-content: unset;
     }
     .main-right {
         order: -1;
@@ -301,7 +302,11 @@ main > div {
 /* End Profile Tab */
 
 /* Lists Tab */
-
+.list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .title {
     text-align: center;
 }
